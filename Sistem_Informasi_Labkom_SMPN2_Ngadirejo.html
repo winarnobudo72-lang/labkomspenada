@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Informasi Laboratorium Komputer | SMP Negeri 2 Ngadirejo</title>
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--cyan:#22b8cf;--ink:#203040;--muted:#637381;--paper:#f4f8fc;--line:#dce6ef;--gold:#ffc857}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(120deg,#102a43,#1769aa 62%,#22b8cf);color:white;padding:24px max(5vw,20px) 54px;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;width:360px;height:360px;border:55px solid #ffffff12;border-radius:50%;right:-90px;top:-160px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:54px;height:54px;border-radius:16px;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:25px;font-weight:900;box-shadow:0 8px 20px #001c3b35}
+.school{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8}.brand h2{margin:0;font-size:18px}
+.clock{border:1px solid #ffffff50;background:#ffffff14;padding:9px 14px;border-radius:12px;font-variant-numeric:tabular-nums}
+.hero{position:relative;z-index:1;max-width:950px;padding-top:45px}.eyebrow{font-weight:700;color:#b8f3ff;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.08;margin:12px 0 16px;letter-spacing:-1px}.hero p{font-size:17px;max-width:760px;color:#e4f3ff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+button,.button{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer;font-size:14px;transition:.2s}
+button:hover,.button:hover{transform:translateY(-1px);filter:brightness(.97)}.primary{background:var(--gold);color:#263238}.light{background:white;color:var(--navy)}.outline{background:transparent;border:1px solid #ffffff70;color:white}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px max(5vw,20px);background:white;box-shadow:0 4px 18px #102a430a;position:sticky;top:0;z-index:10}
+nav a{color:var(--navy);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px;font-weight:700}nav a:hover{background:#eaf5ff}
+main{max-width:1180px;margin:0 auto;padding:30px 20px 60px}.section{margin:28px 0;scroll-margin-top:85px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:16px}.section-head h2{margin:0;color:var(--navy);font-size:25px}.section-head p{margin:4px 0 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 7px 24px #163b5a08;min-width:0}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-28px;position:relative;z-index:2}.stat{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 25px #0b315015}.stat .number{font-size:30px;font-weight:850;color:var(--blue);line-height:1.2}.stat .label{color:var(--muted);font-size:13px;margin-top:5px}
+p{margin-top:0}.lead{font-size:16px;color:#43596b}.pill{display:inline-block;padding:5px 10px;background:#eaf6ff;color:#155b91;border-radius:999px;font-size:12px;font-weight:800}
+.info-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.info-item{padding:13px;border-radius:12px;background:#f5f9fc;border:1px solid #e8eff5}.info-item small{display:block;color:var(--muted);font-size:12px}.info-item strong{display:block;margin-top:3px;color:var(--navy)}
+.org{display:grid;gap:12px;justify-items:center}.orgbox{padding:13px 18px;border:1px solid #b9d8ee;background:#f0f8ff;border-radius:12px;text-align:center;width:min(100%,410px)}.orgbox.top{background:var(--navy);color:white;border-color:var(--navy)}.orgbox strong{display:block}.orgbox small{opacity:.8}.orgline{height:18px;width:2px;background:#9bb9ce}
+.program{display:flex;gap:14px;align-items:flex-start}.program+.program{margin-top:18px}.program-icon{flex:0 0 44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#e8f5ff;color:var(--blue);font-size:20px}.program h3{margin:0 0 4px;font-size:16px;color:var(--navy)}.program p{margin:0;color:var(--muted);font-size:14px}
+.gallery-tools{display:flex;gap:8px;flex-wrap:wrap}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.photo{position:relative;overflow:hidden;border-radius:14px;min-height:180px;background:linear-gradient(135deg,#dceefa,#eef8ff);border:1px solid var(--line)}.photo img{width:100%;height:210px;object-fit:cover;display:block}.photo .placeholder{height:210px;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:#4e7691}.photo .caption{padding:11px 13px;font-size:13px;font-weight:700;background:white}.photo .remove{position:absolute;top:8px;right:8px;background:#fff;color:#a12626;padding:6px 9px;border-radius:8px}
+textarea,input,select{font:inherit;width:100%;padding:11px 12px;border:1px solid #cbd8e3;border-radius:10px;background:white;color:var(--ink)}textarea{min-height:105px;resize:vertical}label{font-size:13px;font-weight:750;display:block;margin:10px 0 6px}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.comment{padding:14px 0;border-bottom:1px solid var(--line)}.comment:last-child{border-bottom:0}.comment-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.comment-head strong{color:var(--navy)}.comment time{font-size:12px;color:var(--muted)}.comment p{margin:7px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.admin-panel{display:none;background:#fff9e8;border:1px solid #f2d58d;border-radius:14px;padding:18px;margin:14px 0}.admin-panel.show{display:block}.admin-tools{display:flex;gap:8px;flex-wrap:wrap}.small{font-size:12px;color:var(--muted)}.danger{background:#fee9e7;color:#9d2620}.success{color:#18794e;font-weight:700}
+footer{background:#102a43;color:#d9e8f4;padding:26px 20px;text-align:center;font-size:13px}footer strong{color:white}.notice{background:#edf8ff;border-left:4px solid var(--cyan);padding:12px 14px;border-radius:8px;color:#31556d;font-size:13px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.gallery{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.gallery{grid-template-columns:1fr}.info-list,.formrow{grid-template-columns:1fr}.clock{width:100%}.stats{gap:9px}.stat{padding:14px}.stat .number{font-size:25px}nav{position:static}}
+@media print{body{background:white;color:#111;font-size:11pt}header{padding:20px;background:#123!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.clock,nav,.actions,.admin-panel,.gallery-tools,.remove,.no-print,form button{display:none!important}main{max-width:none;padding:12px}.card,.stat{box-shadow:none;break-inside:avoid;border:1px solid #bbb}.stats{margin:12px 0;grid-template-columns:repeat(4,1fr)}.section{break-inside:avoid;margin:18px 0}.gallery{grid-template-columns:repeat(3,1fr)}.photo img,.photo .placeholder{height:130px}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 6}footer{background:white;color:#333;border-top:1px solid #bbb}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<header>
+ <div class="topbar">
+  <div class="brand"><div class="logo">LC</div><div><div class="school">Sistem Informasi Fasilitas Sekolah</div><h2>SMP NEGERI 2 NGADIREJO</h2></div></div>
+  <div class="clock"><div style="font-size:11px;opacity:.8">WAKTU SEKARANG</div><strong id="clock">Memuat waktu…</strong><div id="date" style="font-size:12px;opacity:.85"></div></div>
+ </div>
+ <div class="hero"><div class="eyebrow">Digital Learning • Creative • Collaborative</div>
+  <h1>Laboratorium<br>Komputer</h1>
+  <p>Ruang belajar digital untuk mengembangkan literasi teknologi, berpikir komputasional, kreativitas, kolaborasi, dan keterampilan peserta didik SMP Negeri 2 Ngadirejo.</p>
+  <div class="actions"><button class="primary" onclick="document.querySelector('#profil').scrollIntoView()">Jelajahi Laboratorium ↓</button><button class="outline" onclick="window.print()">Cetak / Simpan PDF</button><button class="outline" onclick="toggleAdmin()">Login Admin</button></div>
+ </div>
+</header>
+<nav><a href="#profil">Profil</a><a href="#fasilitas">Fasilitas</a><a href="#organisasi">Organisasi</a><a href="#program">Program Kerja</a><a href="#galeri">Galeri</a><a href="#komentar">Komentar</a></nav>
+<main>
+ <div class="stats">
+  <div class="stat"><div class="number">2</div><div class="label">Ruang Laboratorium</div></div>
+  <div class="stat"><div class="number">72</div><div class="label">Unit Komputer (kapasitas total)</div></div>
+  <div class="stat"><div class="number">2</div><div class="label">Unit Server (1 tiap ruang)</div></div>
+  <div class="stat"><div class="number">100 Mbps</div><div class="label">Internet Inibiz</div></div>
+ </div>
+ <section class="section" id="profil">
+  <div class="section-head"><div><h2>Profil Laboratorium</h2><p>Mengenal fungsi, peran, dan arah pengembangan laboratorium.</p></div><span class="pill">Sarana Pembelajaran Digital</span></div>
+  <div class="grid">
+   <article class="card span-7"><h3 style="margin-top:0;color:var(--navy)">Latar Belakang dan Deskripsi</h3>
+    <p class="lead">Perkembangan teknologi informasi dan komunikasi menuntut peserta didik memiliki kemampuan menggunakan teknologi secara cerdas, kreatif, aman, dan bertanggung jawab. Laboratorium Komputer SMP Negeri 2 Ngadirejo hadir sebagai fasilitas pendukung pembelajaran untuk membangun kompetensi digital dan mempraktikkan materi Informatika.</p>
+    <p>Laboratorium dimanfaatkan untuk pembelajaran teori dan praktik, pengenalan perangkat keras dan perangkat lunak, pengolahan informasi, pemrograman visual, literasi digital, asesmen berbasis komputer, serta kegiatan pengembangan kompetensi guru dan peserta didik. Pengelolaan dilakukan dengan memperhatikan jadwal penggunaan, tata tertib, keamanan perangkat, kebersihan, dan perawatan berkala.</p>
+    <p>Ke depan, laboratorium diharapkan terus berkembang menjadi lingkungan belajar yang inklusif, tertib, inovatif, dan mendukung pembelajaran berbasis proyek serta pemecahan masalah.</p>
+   </article>
+   <article class="card span-5"><h3 style="margin-top:0;color:var(--navy)">Identitas Singkat</h3>
+    <div class="info-list">
+     <div class="info-item"><small>Nama fasilitas</small><strong>Laboratorium Komputer</strong></div>
+     <div class="info-item"><small>Satuan pendidikan</small><strong>SMP Negeri 2 Ngadirejo</strong></div>
+     <div class="info-item"><small>Lokasi</small><strong>Desa Dlimoyo, Ngadirejo</strong></div>
+     <div class="info-item"><small>Kabupaten</small><strong>Temanggung, Jawa Tengah</strong></div>
+     <div class="info-item"><small>Ruang tersedia</small><strong>2 ruang</strong></div>
+     <div class="info-item"><small>Kapasitas</small><strong>36 unit per ruang</strong></div>
+    </div>
+   </article>
+  </div>
+ </section>
+ <section class="section" id="fasilitas">
+  <div class="section-head"><div><h2>Fasilitas dan Kondisi Saat Ini</h2><p>Ringkasan sarana berdasarkan data yang disampaikan.</p></div></div>
+  <div class="card"><div class="info-list">
+   <div class="info-item"><small>Jumlah ruang laboratorium</small><strong>2 ruang</strong></div>
+   <div class="info-item"><small>Kapasitas setiap ruang</small><strong>36 unit komputer</strong></div>
+   <div class="info-item"><small>Perkiraan kapasitas total</small><strong>72 unit komputer</strong></div>
+   <div class="info-item"><small>Server</small><strong>1 unit per ruang (total 2 unit)</strong></div>
+   <div class="info-item"><small>Akses internet</small><strong>Inibiz, 100 Mbps</strong></div>
+   <div class="info-item"><small>Pemanfaatan</small><strong>Pembelajaran, praktik, dan asesmen</strong></div>
+  </div><p class="small" style="margin:14px 0 0">Catatan: jumlah 72 merupakan kapasitas berdasarkan 2 ruang × 36 unit. Data ini tidak menyatakan bahwa seluruh unit komputer saat ini dalam kondisi aktif; status operasional dapat diperbarui oleh pengelola.</p></div>
+ </section>
+ <section class="section" id="organisasi">
+  <div class="section-head"><div><h2>Struktur Organisasi</h2><p>Pembagian tanggung jawab pengelolaan Laboratorium Komputer.</p></div></div>
+  <div class="card"><div class="org">
+   <div class="orgbox top"><strong>Penanggung Jawab</strong><span>Kepala Sekolah</span><small>Isabriawab, S.Pd., M.Si.</small></div><div class="orgline"></div>
+   <div class="orgbox"><strong>Koordinator Laboratorium</strong><small>Budi Winarno, S.Kom.</small></div><div class="orgline"></div>
+   <div class="orgbox"><strong>Guru Mata Pelajaran</strong><small>Budi Winarno, S.Kom. • Aditya Yniyanto, S.T. • Usman Utama, S.Tr.</small></div>
+  </div></div>
+ </section>
+ <section class="section" id="program">
+  <div class="section-head"><div><h2>Program Kerja</h2><p>Program prioritas untuk menjaga mutu layanan dan keberlanjutan fasilitas.</p></div></div>
+  <div class="grid">
+   <article class="card span-6"><div class="program"><div class="program-icon">＋</div><div><h3>1. Pengadaan Alat</h3><p>Mengidentifikasi kebutuhan perangkat komputer, periferal, jaringan, perangkat lunak, serta perlengkapan keselamatan. Menyusun skala prioritas dan usulan pengadaan sesuai kebutuhan pembelajaran dan anggaran sekolah.</p></div></div></article>
+   <article class="card span-6"><div class="program"><div class="program-icon">⚙</div><div><h3>2. Perawatan dan Pengembangan</h3><p>Melaksanakan pemeriksaan rutin, pembersihan, pembaruan perangkat lunak, pencadangan data, pengecekan jaringan, pencatatan kerusakan, dan evaluasi pengembangan fasilitas.</p></div></div></article>
+   <article class="card span-6"><div class="program"><div class="program-icon">▦</div><div><h3>3. Pemanfaatan Sesuai Jadwal</h3><p>Mengatur penggunaan ruang sesuai jadwal pembelajaran, memastikan kesiapan perangkat sebelum kegiatan, menerapkan tata tertib, serta mencatat penggunaan dan kendala setiap sesi.</p></div></div></article>
+   <article class="card span-6"><div class="program"><div class="program-icon">✦</div><div><h3>4. Pelatihan</h3><p>Mendorong pelatihan literasi digital, pemrograman, pemanfaatan aplikasi pembelajaran, keamanan digital, dan pengembangan kompetensi guru maupun peserta didik secara bertahap.</p></div></div></article>
+  </div>
+  <div class="card" style="margin-top:16px"><h3 style="margin-top:0;color:var(--navy)">Siklus Pelaksanaan</h3><div class="info-list">
+   <div class="info-item"><small>Awal tahun / semester</small><strong>Inventarisasi dan perencanaan</strong></div><div class="info-item"><small>Setiap minggu</small><strong>Pengecekan kebersihan dan kesiapan</strong></div>
+   <div class="info-item"><small>Setiap bulan</small><strong>Pemeriksaan perangkat dan jaringan</strong></div><div class="info-item"><small>Akhir semester</small><strong>Evaluasi, laporan, dan tindak lanjut</strong></div>
+  </div><p class="small" style="margin:12px 0 0">Siklus di atas merupakan contoh rancangan dan dapat disesuaikan dengan kalender serta kebijakan sekolah.</p></div>
+ </section>
+ <section class="section" id="galeri">
+  <div class="section-head"><div><h2>Galeri Laboratorium</h2><p>Dokumentasi ruang, perangkat, kegiatan praktik, dan pelatihan.</p></div><div class="gallery-tools no-print"><button class="primary" onclick="document.getElementById('photoFiles').click()">＋ Tambah Foto</button><input id="photoFiles" type="file" accept="image/*" multiple hidden onchange="addPhotos(event)"></div></div>
+  <div class="notice no-print">Admin dapat masuk untuk menambah foto dan keterangan. Foto yang ditambahkan disimpan pada browser/perangkat ini; untuk galeri bersama yang tampil di semua perangkat diperlukan penyimpanan online atau backend.</div>
+  <div class="gallery" id="galleryGrid" style="margin-top:14px">
+   <div class="photo"><div class="placeholder">🖥️<br><strong>Dokumentasi Ruang 1</strong><br><small>Tambahkan foto melalui menu admin</small></div><div class="caption">Ruang Laboratorium Komputer 1</div></div>
+   <div class="photo"><div class="placeholder">💻<br><strong>Dokumentasi Ruang 2</strong><br><small>Tambahkan foto melalui menu admin</small></div><div class="caption">Ruang Laboratorium Komputer 2</div></div>
+   <div class="photo"><div class="placeholder">👩‍💻<br><strong>Kegiatan Praktik</strong><br><small>Tambahkan foto melalui menu admin</small></div><div class="caption">Pembelajaran dan praktik Informatika</div></div>
+  </div>
+ </section>
+ <section class="section" id="komentar">
+  <div class="section-head"><div><h2>Komentar dan Saran Pengunjung</h2><p>Masukan untuk meningkatkan layanan laboratorium.</p></div><span class="pill" id="commentCount">0 komentar</span></div>
+  <div class="grid">
+   <div class="card span-5"><h3 style="margin-top:0;color:var(--navy)">Tulis Komentar</h3>
+    <form id="commentForm" onsubmit="submitComment(event)">
+     <label for="visitorName">Nama</label><input id="visitorName" maxlength="70" required placeholder="Nama pengunjung">
+     <label for="visitorRole">Status pengunjung</label><select id="visitorRole"><option>Peserta didik</option><option>Guru</option><option>Orang tua/wali</option><option>Tenaga kependidikan</option><option>Umum</option></select>
+     <label for="visitorComment">Komentar / saran</label><textarea id="visitorComment" maxlength="1000" required placeholder="Tuliskan komentar dengan sopan dan membangun..."></textarea>
+     <button class="primary" type="submit" style="margin-top:12px">Kirim Komentar</button>
+    </form><p class="small" style="margin-top:12px">Komentar disimpan pada browser ini. Jangan memasukkan data pribadi yang sensitif.</p>
+   </div>
+   <div class="card span-7"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h3 style="margin:0;color:var(--navy)">Komentar Pengunjung</h3><button class="light no-print" onclick="loadComments()">Muat Ulang</button></div><div id="commentsList" style="margin-top:10px"><p class="small">Belum ada komentar. Jadilah pengunjung pertama yang memberi saran.</p></div></div>
+  </div>
+ </section>
+ <section class="section" id="adminSection">
+  <div class="section-head"><div><h2>Area Admin</h2><p>Kelola galeri dan moderasi komentar pada browser ini.</p></div></div>
+  <div class="card">
+   <div id="adminLogin">
+    <div class="formrow"><div><label for="adminUser">Nama pengguna</label><input id="adminUser" autocomplete="username" placeholder="admin"></div><div><label for="adminPass">Kata sandi</label><input id="adminPass" type="password" autocomplete="current-password" placeholder="Kata sandi admin"></div></div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px"><button class="primary" onclick="loginAdmin()">Masuk Admin</button><span id="loginMsg" class="small">Akun demo awal: admin / labkom123</span></div>
+   </div>
+   <div id="adminDashboard" class="admin-panel">
+    <strong>Mode admin aktif</strong><p class="small">Pilih foto melalui tombol “Tambah Foto” pada bagian galeri. Gunakan tombol hapus pada foto atau komentar untuk moderasi.</p>
+    <div class="admin-tools"><button class="light" onclick="exportComments()">Unduh Komentar (CSV)</button><button class="light" onclick="window.print()">Cetak Semua</button><button class="danger" onclick="logoutAdmin()">Keluar Admin</button></div>
+   </div>
+   <p class="notice" style="margin-bottom:0">Penting: login ini hanya untuk demonstrasi di sisi browser, bukan sistem keamanan server. Ganti kata sandi demo sebelum penggunaan dan jangan mempublikasikan data sensitif. Untuk situs publik dengan admin sungguhan, diperlukan autentikasi dan database/backend.</p>
+  </div>
+ </section>
+ <section class="section">
+  <div class="card"><h2 style="font-size:21px;margin-top:0;color:var(--navy)">Komitmen Layanan</h2><p class="lead" style="margin-bottom:0">Laboratorium Komputer SMP Negeri 2 Ngadirejo berkomitmen mendukung pembelajaran yang tertib, aman, kreatif, dan berorientasi pada peningkatan kompetensi digital. Mari menjaga perangkat bersama dan menggunakan teknologi secara bertanggung jawab.</p></div>
+ </section>
+</main>
+<footer><strong>LABORATORIUM KOMPUTER • SMP NEGERI 2 NGADIREJO</strong><br>Desa Dlimoyo, Kecamatan Ngadirejo, Kabupaten Temanggung, Jawa Tengah<br><span id="footerYear"></span> • Sistem Informasi Laboratorium Komputer</footer>
+<script>
+const $=id=>document.getElementById(id);
+function updateClock(){const now=new Date();$('clock').textContent=now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});$('date').textContent=now.toLocaleDateString('id-ID',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});$('footerYear').textContent='© '+now.getFullYear();}
+updateClock();setInterval(updateClock,1000);
+const ADMIN_USER='admin', ADMIN_PASS='labkom123';
+let isAdmin=false;
+function toggleAdmin(){ $('adminSection').scrollIntoView({behavior:'smooth'}); }
+function loginAdmin(){if($('adminUser').value.trim()===ADMIN_USER&&$('adminPass').value===ADMIN_PASS){isAdmin=true;$('adminLogin').style.display='none';$('adminDashboard').classList.add('show');$('loginMsg').textContent='';renderGallery();loadComments();}else{$('loginMsg').textContent='Nama pengguna atau kata sandi salah.';$('loginMsg').style.color='#b42318';}}
+function logoutAdmin(){isAdmin=false;$('adminLogin').style.display='block';$('adminDashboard').classList.remove('show');$('adminPass').value='';renderGallery();loadComments();}
+function getStored(key,fallback=[]){try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}}
+function setStored(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){alert('Penyimpanan browser penuh. Kurangi ukuran/jumlah foto lalu coba lagi.');return false}}
+function addPhotos(event){if(!isAdmin){alert('Silakan login sebagai admin terlebih dahulu.');event.target.value='';return;}const files=Array.from(event.target.files||[]);if(!files.length)return;let done=0;const existing=getStored('labkomPhotos');files.forEach(file=>{if(!file.type.startsWith('image/')){done++;return;}const reader=new FileReader();reader.onload=()=>{existing.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),src:reader.result,caption:file.name.replace(/\.[^.]+$/,'')});done++;if(done===files.length){if(setStored('labkomPhotos',existing))renderGallery();event.target.value='';}};reader.onerror=()=>{done++;if(done===files.length)event.target.value='';};reader.readAsDataURL(file);});}
+function renderGallery(){const grid=$('galleryGrid'),photos=getStored('labkomPhotos');grid.innerHTML='';if(!photos.length){grid.innerHTML='<div class="photo"><div class="placeholder">🖥️<br><strong>Belum ada foto unggahan</strong></div><div class="caption">Silakan tambahkan foto melalui admin</div></div>';return;}photos.forEach(p=>{const card=document.createElement('div');card.className='photo';const img=document.createElement('img');img.src=p.src;img.alt=p.caption||'Foto laboratorium';const cap=document.createElement('div');cap.className='caption';cap.textContent=p.caption||'Dokumentasi laboratorium';card.appendChild(img);card.appendChild(cap);if(isAdmin){const del=document.createElement('button');del.className='remove';del.textContent='Hapus';del.onclick=()=>{if(confirm('Hapus foto ini?')){setStored('labkomPhotos',getStored('labkomPhotos').filter(x=>x.id!==p.id));renderGallery();}};card.appendChild(del);const edit=document.createElement('button');edit.className='remove';edit.style.right='62px';edit.textContent='Edit';edit.onclick=()=>{const val=prompt('Keterangan foto:',p.caption||'');if(val!==null){const all=getStored('labkomPhotos');const item=all.find(x=>x.id===p.id);if(item)item.caption=val;setStored('labkomPhotos',all);renderGallery();}};card.appendChild(edit);}grid.appendChild(card);});}
+function submitComment(event){event.preventDefault();const item={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:$('visitorName').value.trim(),role:$('visitorRole').value,text:$('visitorComment').value.trim(),time:new Date().toISOString()};if(!item.name||!item.text)return;const comments=getStored('labkomComments');comments.unshift(item);if(setStored('labkomComments',comments)){$('commentForm').reset();loadComments();}}
+function loadComments(){const list=$('commentsList'),comments=getStored('labkomComments');$('commentCount').textContent=comments.length+' komentar';list.innerHTML='';if(!comments.length){list.innerHTML='<p class="small">Belum ada komentar. Jadilah pengunjung pertama yang memberi saran.</p>';return;}comments.forEach(c=>{const wrap=document.createElement('div');wrap.className='comment';const head=document.createElement('div');head.className='comment-head';const who=document.createElement('strong');who.textContent=c.name+' · '+c.role;const time=document.createElement('time');time.textContent=new Date(c.time).toLocaleString('id-ID');head.append(who,time);const p=document.createElement('p');p.textContent=c.text;wrap.append(head,p);if(isAdmin){const del=document.createElement('button');del.className='danger no-print';del.style.padding='6px 10px';del.style.marginTop='8px';del.textContent='Hapus komentar';del.onclick=()=>{if(confirm('Hapus komentar ini?')){setStored('labkomComments',getStored('labkomComments').filter(x=>x.id!==c.id));loadComments();}};wrap.append(del);}list.append(wrap);});}
+function exportComments(){if(!isAdmin){alert('Login admin diperlukan.');return;}const comments=getStored('labkomComments');const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const rows=[['Nama','Status','Komentar','Waktu'],...comments.map(c=>[c.name,c.role,c.text,new Date(c.time).toLocaleString('id-ID')])];const csv='\ufeff'+rows.map(r=>r.map(esc).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='komentar-labkom-spenada.csv';a.click();URL.revokeObjectURL(a.href);}
+renderGallery();loadComments();
+</script>
+</body>
+</html>
